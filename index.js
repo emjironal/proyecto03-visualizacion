@@ -15,7 +15,6 @@ function getMain(req, res)
 }
 
 app.get('/', getMain)
-app.get('/getHappiness', getHappiness)
 
 app.listen(PORT, ()=>
 {
