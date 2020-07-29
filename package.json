@@ -1,0 +1,25 @@
+{
+  "name": "proyecto03",
+  "version": "1.0.0",
+  "description": "Proyecto 3 de visualizción",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/emjironal/proyecto03-visualizacion.git"
+  },
+  "author": "Eduardo Jirón y Nicole Carvajal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emjironal/proyecto03-visualizacion/issues"
+  },
+  "homepage": "https://github.com/emjironal/proyecto03-visualizacion#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
