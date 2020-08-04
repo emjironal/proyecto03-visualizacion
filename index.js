@@ -1,9 +1,10 @@
 const express = require('express')
 const path = require('path');
-const csv = require('csvtojson')
+const sunburst = require("./routes/sunburst")
 
 const app = express()
 const PORT = process.env.PORT || 3000
+
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views'); 
@@ -15,6 +16,8 @@ function getMain(req, res)
 }
 
 app.get('/', getMain)
+app.get('/sunburst/getSunburstInfo', sunburst.getSunburstInfo)
+app.get('/sunburst', sunburst.getSunburstGraphic)
 
 app.listen(PORT, ()=>
 {
