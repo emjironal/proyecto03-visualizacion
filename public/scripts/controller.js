@@ -1,7 +1,7 @@
 var current_chart
 
 // Splice in transparent for the center circle
-Highcharts.getOptions().colors.splice(0, 0, 'solid');
+Highcharts.getOptions().colors.splice(0, 0, 'gray');
 
 function selectChart(chart)
 {
@@ -37,9 +37,9 @@ function getSunburstData(chart, category)
     var params = {tipo: category}
     $.get(`/${chart}/getSunburstInfo`, params, function(data)
     {
-        var result = []
+        
         var activityList = Object.entries(data[0])
-        result.push(sunburstData('0.0', '', activityList[0][0]))
+        var result = [sunburstData('0.0', '', activityList[0][0])]
         data.forEach((activity, i) => 
         {
             var activityList = Object.entries(activity)
@@ -52,16 +52,16 @@ function getSunburstData(chart, category)
                 }
                 else if(j)
                 {
-                    newActivity = sunburstData(`${i + 1}.${j}`, `${i + 1}.0`, activityProp[0], Number(activityProp[1]))
+                    var value = Number(activityList[1][1]) * (Number(activityProp[1]) / 100)
+                    newActivity = sunburstData(`${i + 1}.${j}`, `${i + 1}.0`, activityProp[0], Number(value.toFixed(0)))
                 }
                 else
                 {
-                    newActivity = sunburstData(`${i + 1}.${j}`, '0.0', activityProp[1])
+                    newActivity = sunburstData(`${i + 1}.${j}`, '0.0', activityProp[1], Number(activityList[1][1]))
                 }
                 result.push(newActivity)
             } //end activityList.forEach
         }); //end activities.forEach
-        console.log(result);
         current_chart.series[0].setData(result)
     }) //end get
 } //end getData

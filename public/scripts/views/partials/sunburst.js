@@ -45,6 +45,12 @@ function sunburstChart(data)
                         key: 'brightness',
                         to: -0.5
                     }
+                }, {
+                    level: 4,
+                    colorVariation: {
+                        key: 'brightness',
+                        to: 0.5
+                    }
                 }]
             }], //end series
         tooltip: {
