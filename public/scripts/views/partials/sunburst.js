@@ -1,6 +1,6 @@
 function sunburstChart(data)
 {
-    Highcharts.chart("chart",
+    return new Highcharts.chart("chart",
     {
         chart: {
             height: "100%"
@@ -17,7 +17,7 @@ function sunburstChart(data)
             allowDrillToNode: true,
             cursor: "pointer",
             datalabels: {
-                //format: "{"
+                format: '{point.name}',
                 filter: {
                     property: "innerArcLenght",
                     operator: ">",
@@ -45,17 +45,11 @@ function sunburstChart(data)
                         key: 'brightness',
                         to: -0.5
                     }
-                }, {
-                    level: 4,
-                    colorVariation: {
-                        key: 'brightness',
-                        to: 0.5
-                    }
                 }]
-            }],
+            }], //end series
         tooltip: {
             headerFormat: "",
-            pointFormat: "Personas que realizan la actividad lúdica"
+            pointFormat: "Personas que realizan la actividad lúdica <b>{point.name}</b> es <b>{point.value}"
         }
-    })
+    }) //end Highcharts.chart
 }
