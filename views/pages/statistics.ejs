@@ -9,15 +9,20 @@
     <%- include("../partials/menubar") %>
     
     <div class="container-fluid align-items-center">
-      <div class="align-items-center form-inline">
-        <%- include("../partials/chart-select") %>
-        <%- include("../partials/category-select") %>
-      </div>
-      <br>
-      <div class="align-items-center">
-        <div id="chart" class="mx-auto" style="width: 600px;">
+        <div class="row">
+            <div class="col-3">
+                <br>
+                <p class="lead">
+                    Conforme las personas se vuelven mayores cuentan más historias, mientras
+                    que los más jóvenes se dedican a realizar actividades que involucran
+                    esfuerzo físico.
+                </p>
+            </div>
+            <div class="align-items-center col-9">
+                <div id="chart" class="mx-auto">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Bootstrap -->
@@ -28,15 +33,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Highcharts -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- Highcharts sunburst -->
-    <script src="https://code.highcharts.com/modules/sunburst.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <!-- Local -->
-    <script src="/scripts/views/partials/sunburst.js"></script>
-    <!-- Local -->
-    <script src="/scripts/controller.js"></script>
-    
+    <script src="/scripts/statistics.js"></script>
     <script type="text/javascript">
-      $("#graphics")[0].classList.add("active")
+      $("#statistics")[0].classList.add("active")
     </script>
   </body>
 

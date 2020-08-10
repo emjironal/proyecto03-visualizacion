@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path');
 const sunburst = require("./routes/sunburst")
 const bubble =  require("./routes/bubble")
+const { getStatisticsPage } = require("./routes/controller")
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -22,6 +23,8 @@ app.get('/sunburst', sunburst.getSunburstGraphic)
 
 app.get('/bubblechart/getBubbleInfo', bubble.getBubbleInfo)
 app.get('/bubblechart', bubble.getBubbleGraphic)
+
+app.get('/estadisticas', getStatisticsPage)
 
 app.listen(PORT, ()=>
 {
