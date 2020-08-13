@@ -1,17 +1,19 @@
 var current_chart
 
-// Splice in transparent for the center circle
-Highcharts.getOptions().colors.splice(0, 0, 'gray');
+
 
 function selectChart(chart)
 {
     current_chart = current_chart ? current_chart.destroy() : current_chart
     if(chart == "bubble")
     {
-        
+        //current_chart = bubbleChart();
+        getBubbleData($("#chart-select").val(), $("#category").val())
     } //end if
     else
     {
+        // Splice in transparent for the center circle
+        Highcharts.getOptions().colors.splice(0, 0, 'gray');
         current_chart = sunburstChart();
         getSunburstData($("#chart-select").val(), $("#category").val())
     } //end else
@@ -31,6 +33,23 @@ function sunburstData(id, parent, name, value = undefined)
     } //end if
     return objectSunburstData
 } //end sunburstData
+
+function bubbleData(name, value = undefined, data = undefined)
+{
+    var objectBubbleData =
+    {
+        name: name
+    }
+    if(value)
+    {
+        objectBubbleData["value"] = value
+    } //end if
+    if(data)
+    {
+        objectBubbleData["data"] = data
+    }
+    return objectBubbleData
+} //end bubbleData
 
 function getSunburstData(chart, category)
 {
@@ -65,5 +84,13 @@ function getSunburstData(chart, category)
         current_chart.series[0].setData(result)
     }) //end get
 } //end getData
+
+function getBubbleData(chart, category)
+{
+    console.log(category)
+    bubbleChart(bubbledata(category))
+    
+} //end getData
+
 
 selectChart()
