@@ -1,6 +1,6 @@
 var current_chart
 
-
+Highcharts.getOptions().colors.splice(0, 1);
 
 function selectChart(chart)
 {
@@ -13,7 +13,6 @@ function selectChart(chart)
     else
     {
         // Splice in transparent for the center circle
-        Highcharts.getOptions().colors.splice(0, 0, 'gray');
         current_chart = sunburstChart();
         getSunburstData($("#chart-select").val(), $("#category").val())
     } //end else
